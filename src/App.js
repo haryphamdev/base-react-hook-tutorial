@@ -1,7 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
+import TodoList from './components/TodoList';
+//JSX
+// function App() { 
+const App = () => {
 
-function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -9,6 +12,8 @@ function App() {
         <p>
           Hello world React with Hoi Dan IT
         </p>
+        <TodoList />
+
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -21,5 +26,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
