@@ -1,19 +1,57 @@
 import React, { useState } from 'react';
+import _ from 'lodash';
 
 const TodoList = () => {
-    const [name, setName] = useState("");
+    const [todo, setTodo] = useState("");
+    const [listTodo, setListTodo] = useState(
+        [
+            { id: 'todo1', name: "Whatching youtube" },
+            { id: 'todo2', name: "Using facebook" },
+            { id: 'todo3', name: "Reading book" }
+        ]
+    )
 
-    const handleClickBtn = (event, mgs) => {
-        console.log(">> run inside handleClickBtn ---:", name)
+    const randomIntFromInterval = (min, max) => { // min and max included 
+        return Math.floor(Math.random() * (max - min + 1) + min)
+    }
+
+
+
+    const handleClickBtn = () => {
+        let todoId = randomIntFromInterval(4, 99999999999999);
+        let todoItem = {
+            id: `todo${todoId}`, name: todo //string template
+        }
+
+        let currentTodoList = _.clone(listTodo);
+        currentTodoList.push(todoItem);
+        setListTodo(currentTodoList)
+
+        // setListTodo([...listTodo, todoItem]);  //spread operator
+    }
+
+    const handleDeleteTodo = (id) => {
+        let currentTodoList = _.clone(listTodo);
+        currentTodoList = currentTodoList.filter(item => item.id !== id);
+        // currentTodoList = currentTodoList.filter(item => {
+        //     if (item.id !== id) return item;
+        // });
+
+        setListTodo(currentTodoList)
     }
     return (
         <div>
-            <label>Name</label>
-            <input value={name} type="text"
-                onChange={(event) => setName(event.target.value)} />
-            <button type='submit' onClick={() => handleClickBtn("event", 'buttonClickasfasfd')}>Submit</button>
+            <label>Todo's Name: </label>
+            <input value={todo} type="text" onChange={(event) => setTodo(event.target.value)} />
+            <button type='submit' onClick={() => handleClickBtn()}>Submit</button>
             <br /><br />
-            Hello Todo list with name = {name}
+
+            <div>---- List todo ----- </div>
+            {listTodo.map((item, index) => {
+                return (
+                    <div id={item.id} key={item.id} onClick={() => handleDeleteTodo(item.id)}> {item.name}</div>
+                )
+            })}
         </div>
     );
 }
