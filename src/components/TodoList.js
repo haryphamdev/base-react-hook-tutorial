@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import _ from 'lodash';
+import AddTodo from './AddTodo';
+import DisplayTodo from './DisplayTodo';
 
 const TodoList = () => {
     const [todo, setTodo] = useState("");
@@ -18,6 +20,10 @@ const TodoList = () => {
 
 
     const handleClickBtn = () => {
+        if (!todo) {
+            alert("Todo's name is not empty");
+            return;
+        }
         let todoId = randomIntFromInterval(4, 99999999999999);
         let todoItem = {
             id: `todo${todoId}`, name: todo //string template
@@ -25,7 +31,8 @@ const TodoList = () => {
 
         let currentTodoList = _.clone(listTodo);
         currentTodoList.push(todoItem);
-        setListTodo(currentTodoList)
+        setListTodo(currentTodoList);
+        setTodo("");
 
         // setListTodo([...listTodo, todoItem]);  //spread operator
     }
@@ -39,19 +46,27 @@ const TodoList = () => {
 
         setListTodo(currentTodoList)
     }
+
+    const myInfor = { channel: "hoi dan it", age: 25 }
+    //props, state: object (key: value)
     return (
         <div>
+            <div></div>
+
+            <AddTodo
+
+
+            />
             <label>Todo's Name: </label>
             <input value={todo} type="text" onChange={(event) => setTodo(event.target.value)} />
             <button type='submit' onClick={() => handleClickBtn()}>Submit</button>
             <br /><br />
+            <DisplayTodo
+                childData={listTodo} // x=y =>   x <- y
+                name={"Eric"}
+                myInfor={myInfor}
+            />
 
-            <div>---- List todo ----- </div>
-            {listTodo.map((item, index) => {
-                return (
-                    <div id={item.id} key={item.id} onClick={() => handleDeleteTodo(item.id)}> {item.name}</div>
-                )
-            })}
         </div>
     );
 }
