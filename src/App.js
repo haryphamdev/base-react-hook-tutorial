@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import TodoList from './components/TodoList';
+import Home from './components/Home';
 //JSX
 // function App() { 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
           Hello world React with x = {JSON.stringify(x)}
           {console.log('values x = ', x)}
         </p>
-        <TodoList />
+        <Home />
 
         <a
           className="App-link"

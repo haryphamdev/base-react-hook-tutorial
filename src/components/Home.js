@@ -3,7 +3,7 @@ import _ from 'lodash';
 import AddTodo from './AddTodo';
 import DisplayTodo from './DisplayTodo';
 
-const TodoList = () => {
+const Home = () => {
     const [todo, setTodo] = useState("");
     const [listTodo, setListTodo] = useState(
         [
@@ -54,24 +54,23 @@ const TodoList = () => {
             <div></div>
 
             <AddTodo
-
-
+                todo={todo}
+                setTodo={setTodo}
+                handleClickBtn={handleClickBtn}
             />
-            <label>Todo's Name: </label>
-            <input value={todo} type="text" onChange={(event) => setTodo(event.target.value)} />
-            <button type='submit' onClick={() => handleClickBtn()}>Submit</button>
-            <br /><br />
+
             <DisplayTodo
                 childData={listTodo} // x=y =>   x <- y
                 name={"Eric"}
                 myInfor={myInfor}
+                deleteTodoInParent={handleDeleteTodo}
             />
 
         </div>
     );
 }
 
-// class TodoList extends React.Component {
+// class Home extends React.Component {
 
 //     //khai báo state
 //     state = {
@@ -93,4 +92,4 @@ const TodoList = () => {
 //     }
 // }
 
-export default TodoList;
+export default Home;
