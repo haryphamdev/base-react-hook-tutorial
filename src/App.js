@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import Home from './components/Home';
 import AddNewProduct from './components/AddNewProduct';
 //JSX
@@ -9,9 +9,11 @@ const App = () => {
   const x = [1, 2, 3, { name: 'eric' }]
   // const x = { name: 'eric' }
 
+
   return (
+
     <div className="App">
-      <header className="App-header content-left">
+      <header className="App-header content-left"> inline
         <div style={{ textAlign: "center" }}> <img src={logo} className="App-logo" alt="logo" /></div>
 
         <p>
@@ -24,6 +26,8 @@ const App = () => {
         <AddNewProduct />
       </div>
     </div>
+
+
   );
 }
 

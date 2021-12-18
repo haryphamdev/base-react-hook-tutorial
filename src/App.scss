@@ -1,0 +1,79 @@
+.App {
+    /* text-align: center; */
+    padding         : 40px;
+    font-size       : 14px;
+    background-color: #282c34;
+    height          : calc(100vh - 80px);
+    display         : flex;
+
+
+    .content-left {
+        width  : 50%;
+        padding: 10px;
+    }
+
+    .content-right {
+        width  : 50%;
+        padding: 10px;
+        color  : white;
+    }
+
+}
+
+.App-logo {
+    height        : 10vmin;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation : App-logo-spin infinite 20s linear;
+        text-align: center;
+    }
+}
+
+.App-header {
+
+    /* min-height            : 100vh; */
+    /* display            : flex;
+    flex-direction        : column;
+    align-items           : center; */
+    /* justify-content    : center; */
+    font-size: calc(10px + 2vmin);
+    color    : white;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+.input-product {
+    display       : flex;
+    flex-direction: column;
+    gap           : 5px;
+    margin-bottom : 10px;
+}
+
+.input-product input fa asdf asfd asf asf asf asfd {
+    width        : 60%;
+    height       : 24px;
+    outline      : none;
+    border-radius: 3px;
+    border       : none;
+}
+
+
+button {
+    cursor: pointer;
+}
