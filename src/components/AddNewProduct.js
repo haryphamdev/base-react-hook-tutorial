@@ -9,23 +9,31 @@ const AddNewProduct = () => {
     const [isShowDetail, setIsShowDetail] = useState(true);
 
     const handleClickBtn = () => {
-        // let object = {
-        //     name, price, size, color
-        // }
-
         let object = {
             name1: name,
             price: price,
             size: size,
             color: color
         }
-        console.log(">>> check data: ", object);
+
+        let producList = localStorage.getItem("producList");
+        if (producList) {
+            let arr = JSON.parse(producList);
+            arr.push((object))
+            localStorage.setItem("producList", JSON.stringify(arr));
+        } else {
+            localStorage.setItem("producList", JSON.stringify([object]));
+        }
+
+        setName("");
+        setPrice(0);
+        setSize(0);
+        setColor("");
     }
 
     const handleHideShow = (status) => {
         setIsShowDetail(status)
     }
-
 
     return (
         <div>
@@ -54,18 +62,17 @@ const AddNewProduct = () => {
                     </div>
                 </fieldset>
             }
-            {/* {
-                isShowDetail === true && <div onClick={() => { handleHideShow(false) }}>Hide this form</div>
-            }
-
-            {
-                isShowDetail === false && <div onClick={() => { handleHideShow(true) }}>Show the form</div>
-            } */}
 
             {isShowDetail === true ?
                 <div onClick={() => { handleHideShow(false) }}>Hide this form</div>
                 : <div onClick={() => { handleHideShow(true) }}>Show the form</div>
             }
+            <div>
+                List products:
+                <div>
+                    {localStorage.getItem("producList")}
+                </div>
+            </div>
 
         </div>
     )
