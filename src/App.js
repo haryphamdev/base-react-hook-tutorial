@@ -2,6 +2,9 @@ import logo from './logo.svg';
 import './App.scss';
 import Home from './components/Home';
 import AddNewProduct from './components/AddNewProduct';
+import Product from './components/Products/Product';
+import 'react-image-lightbox/style.css';
+
 //JSX
 // function App() { 
 const App = () => {
@@ -17,13 +20,15 @@ const App = () => {
         <div style={{ textAlign: "center" }}> <img src={logo} className="App-logo" alt="logo" /></div>
 
         <p>
-          Hello world React with x = {JSON.stringify(x)}
-          {console.log('values x = ', x)}
+          <span>Hello world React</span> with Eric
+
         </p>
         <Home />
       </header>
       <div className='content-right'>
         <AddNewProduct />
+        <hr />
+        <Product />
       </div>
     </div>
 
