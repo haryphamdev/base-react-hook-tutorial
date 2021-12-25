@@ -25,16 +25,8 @@ const App = () => {
     <Router>
       <Nav />
       <Switch>
-        <Route path="/product">
-          <Product />
-        </Route>
-        <Route path="/weather">
-          <div>weather app</div>
-        </Route>
-        <Route path="/about">
-          <div>I'm Eric</div>
-        </Route>
-        <Route path="/">
+
+        <Route path="/" exact={true}>
           <div className="App">
             <header className="App-header content-left"> inline
               <div style={{ textAlign: "center" }}> <img src={logo} className="App-logo" alt="logo" /></div>
@@ -51,6 +43,19 @@ const App = () => {
               <Product />
             </div>
           </div>
+        </Route>
+
+        <Route path="/product">
+          <Product />
+        </Route>
+        <Route path="/weather">
+          <div>weather app</div>
+        </Route>
+        <Route path="/about">
+          <div>I'm Eric</div>
+        </Route>
+        <Route path="*">
+          <div>404 Not Found!</div>
         </Route>
       </Switch>
 
