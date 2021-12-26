@@ -13,6 +13,7 @@ import {
   Link
 } from "react-router-dom";
 import Weather from './components/Weather/Weather';
+import OTP from './components/OTP/OTP';
 
 
 
@@ -54,6 +55,9 @@ const App = () => {
         </Route>
         <Route path="/about">
           <div>I'm Eric</div>
+        </Route>
+        <Route path="/otp">
+          <OTP />
         </Route>
         <Route path="*">
           <div>404 Not Found!</div>
