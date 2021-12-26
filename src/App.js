@@ -12,6 +12,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Weather from './components/Weather/Weather';
 
 
 
@@ -49,7 +50,7 @@ const App = () => {
           <Product />
         </Route>
         <Route path="/weather">
-          <div>weather app</div>
+          <Weather />
         </Route>
         <Route path="/about">
           <div>I'm Eric</div>
