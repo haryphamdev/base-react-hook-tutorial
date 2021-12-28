@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Search from "./Search";
+import './Weather.scss';
+import _ from "lodash";
+
 const Weather = () => {
     const [title, setTitle] = useState("");
     useEffect(async () => {
-        console.log(">>> run use effect")
+
         let response = await axios({
             method: 'post',
             url: "https://reacthook-hoidanit-backend.herokuapp.com/get-data-by-url",
@@ -16,9 +20,11 @@ const Weather = () => {
         }, 1000)
     }, []);
 
-    console.log(">> run render")
+
     return (
-        <div> inside weather component: title = {title}</div>
+        <div className="weather-app-container">
+            <Search />
+        </div>
     )
 }
 
