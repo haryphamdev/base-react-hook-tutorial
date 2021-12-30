@@ -14,14 +14,9 @@ import {
 } from "react-router-dom";
 import Weather from './components/Weather/Weather';
 import OTP from './components/OTP/OTP';
-
-
+import WeatherByLocation from './components/Weather/WeatherByLocation';
 
 const App = () => {
-
-  const x = [1, 2, 3, { name: 'eric' }]
-  // const x = { name: 'eric' }
-
 
   return (
     <Router>
@@ -50,7 +45,7 @@ const App = () => {
         <Route path="/product">
           <Product />
         </Route>
-        <Route path="/weather">
+        <Route path="/weather" exact>
           <Weather />
         </Route>
         <Route path="/about">
@@ -58,6 +53,9 @@ const App = () => {
         </Route>
         <Route path="/otp">
           <OTP />
+        </Route>
+        <Route path="/weather/detail/:woeid" >
+          <WeatherByLocation />
         </Route>
         <Route path="*">
           <div>404 Not Found!</div>
