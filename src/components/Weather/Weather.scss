@@ -21,7 +21,43 @@
             align-items    : center;
             flex-wrap      : wrap;
             padding        : 15px;
+
+            .woeid {
+                span {
+                    cursor: pointer;
+                }
+            }
         }
 
+    }
+
+
+}
+
+.w-b-l-container {
+    padding: 15px;
+
+    .list-weather-day {
+        display: flex;
+        gap    : 20px;
+
+        .weather-day-0 {
+            display: flex;
+
+            .location-data {
+                padding  : 15px;
+                min-width: 100px;
+
+                .title {
+                    font-size    : 20px;
+                    color        : #337ab7;
+                    margin-bottom: 10px;
+                }
+
+                .time {
+                    font-size: 13px;
+                }
+            }
+        }
     }
 }

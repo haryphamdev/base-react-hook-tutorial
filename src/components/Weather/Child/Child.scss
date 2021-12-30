@@ -4,8 +4,8 @@
 
     .icon-state {
         img {
-            width : 80px;
-            height: 80px;
+            width : 35px;
+            height: 35px;
 
         }
     }
@@ -14,5 +14,98 @@
         font-size     : 18px;
         font-weight   : 600;
         padding-bottom: 5px;
+        margin-left   : 5px;
     }
+}
+
+.weather-day-container {
+    padding  : 15px;
+    font-size: 14px;
+
+    .date {
+        color: #337ab7;
+    }
+
+    .state {
+        margin: 10px 0;
+    }
+
+    .min {
+        margin-top: 5px;
+    }
+
+    .wind {
+        margin-top: 10px;
+
+        .dir {
+            display        : inline-block;
+            width          : 1em;
+            height         : 1em;
+            background     : url('../../../assets/images/windarrow.svg');
+            background-size: 100% 100%;
+        }
+
+        .dir-nne {
+            transform: rotate(22.5deg);
+        }
+
+        .dir-ne {
+            transform: rotate(45deg)
+        }
+
+        .dir-ene {
+            transform: rotate(67.5deg)
+        }
+
+        .dir-e {
+            transform: rotate(90deg);
+        }
+
+        .dir-ese {
+            transform: rotate(112.5deg)
+        }
+
+        .dir-se {
+            transform: rotate(135deg)
+        }
+
+        .dir-sse {
+            transform: rotate(157.5deg)
+        }
+
+        .dir-s {
+            transform: rotate(180deg)
+        }
+
+        .dir-ssw {
+            transform: rotate(202.5deg)
+        }
+
+        .dir-sw {
+            transform: rotate(225deg)
+        }
+
+        .dir-wsw {
+            transform: rotate(247.5deg)
+        }
+
+        .dir-w {
+            transform: rotate(270deg)
+        }
+
+        .dir-wnw {
+            transform: rotate(292.5deg)
+        }
+
+        .dir-nw {
+            transform: rotate(315deg)
+        }
+
+        .dir-nnw {
+            transform: rotate(337.5deg)
+        }
+    }
+
+
+
 }
