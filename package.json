@@ -1,5 +1,4 @@
 {
-  "proxy": "https://www.metaweather.com",
   "name": "eric-app",
   "version": "0.1.0",
   "private": true,

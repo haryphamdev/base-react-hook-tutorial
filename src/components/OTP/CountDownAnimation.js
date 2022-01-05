@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { forwardRef, useEffect, useState, useImperativeHandle } from "react";
 import './CountDownAnimation.scss';
 
-const CountDownAnimation = (props) => {
+const CountDownAnimation = forwardRef((props, ref) => {
     const TIME_LIMIT = 20;
     const [timeLeft, setTimeLeft] = useState(TIME_LIMIT);
     const FULL_DASH_ARRAY = 283;
@@ -94,6 +94,30 @@ const CountDownAnimation = (props) => {
 
     }, [timeLeft]);
 
+    useImperativeHandle(ref, () => ({
+
+        restTimer() {
+            const { alert, warning, info } = COLOR_CODES;
+
+            document
+                .getElementById("base-timer-path-remaining")
+                .classList.remove(alert.color);
+
+            document
+                .getElementById("base-timer-path-remaining")
+                .classList.remove(warning.color);
+
+            document
+                .getElementById("base-timer-path-remaining")
+                .classList.add(info.color);
+
+            setTimeLeft(TIME_LIMIT);
+            props.setIsDisableBtn(false);
+        }
+
+
+    }));
+
     return (
         <div className="count-down-animation-container">
             <div className="base-timer">
@@ -118,6 +142,6 @@ const CountDownAnimation = (props) => {
             </div>
         </div>
     )
-}
+})
 
 export default CountDownAnimation;

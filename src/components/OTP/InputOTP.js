@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import OtpInput from 'react-otp-input';
 import CountDown from './CountDown';
 import CountDownAnimation from './CountDownAnimation';
 
 const InputOTP = (props) => {
+    const childRef = useRef();
     const [otp, setOtp] = useState("");
     const handleChange = (otp) => {
         setOtp(otp);
@@ -12,6 +13,11 @@ const InputOTP = (props) => {
 
     const handleConfirmOTP = () => {
         props.handleSubmitOTP();
+    }
+
+    const handleClearBtn = () => {
+        childRef.current.restTimer();
+        console.log(">>> check ref: ", childRef)
     }
     return (
         <div className='input-otp-container'>
@@ -29,10 +35,14 @@ const InputOTP = (props) => {
                 /> */}
                 <CountDownAnimation
                     setIsDisableBtn={props.setIsDisableBtn}
+                    ref={childRef}
                 />
             </div>
             <div className='action'>
-                <button className='clear'>Clear</button>
+                <button className='clear'
+                    onClick={() => handleClearBtn()}
+                    disabled={!props.isDisableBtn}
+                >Clear</button>
                 <button className='confirm'
                     disabled={props.isDisableBtn}
                     onClick={() => handleConfirmOTP()}
