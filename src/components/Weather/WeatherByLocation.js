@@ -17,6 +17,7 @@ const WeatherByLocation = (props) => {
 
     useEffect(() => {
         getWeatherByLocation();
+
     }, []);
     const getWeatherByLocation = async () => {
         if (!woeid) {

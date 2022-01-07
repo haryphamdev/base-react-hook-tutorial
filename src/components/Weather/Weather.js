@@ -6,20 +6,7 @@ import _ from "lodash";
 import WeatherByLocation from "./WeatherByLocation";
 
 const Weather = () => {
-    const [title, setTitle] = useState("");
-    useEffect(async () => {
 
-        let response = await axios({
-            method: 'post',
-            url: "https://reacthook-hoidanit-backend.herokuapp.com/get-data-by-url",
-            data: { url: 'https://www.metaweather.com/api/location/1236594/' },
-
-        });
-
-        setTimeout(() => {
-            setTitle(response.data.title)
-        }, 1000)
-    }, []);
 
 
     return (

@@ -50,7 +50,7 @@ const Product = () => {
                     <div className="size">Size: 30</div>
                     <div className="action">
                         <label className="quantity">Số lượng</label>
-                        <input type="number" min={1} value={1} />
+                        <input type="number" min={1} defaultValue={1} />
                         <button className="buy">Chọn mua</button>
                     </div>
                 </div>
